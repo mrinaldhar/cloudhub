@@ -1,0 +1,93 @@
+@font-face {
+	src: url('../font/myriadpro.otf');
+	font-family:myFont;
+}
+#logo_main {
+	position:relative;
+	padding-top:100px;
+	max-width: 50%;
+	padding-bottom:20px;
+}
+
+body {
+	text-align: center;
+	background-color: rgb(255,255,255);
+	font-family: myFont;
+	overflow-y:hidden;
+}
+#diss_1 {
+	width:80%;
+	height:30%;
+}
+#dashboard {
+	margin-top:80px;
+	display:none;
+	text-align: center;
+	width:100%;
+	max-width: 100%;
+}
+.dashitem {
+	display:inline-block;
+	height:0px;
+	width:0px;
+	opacity: 0;
+	color:white;
+	font-size: 1.3em;
+	vertical-align: middle;
+	padding-top: 60px;
+	padding-bottom: auto;
+	overflow:none;
+	text-align: center;
+	margin-right:50px;
+}
+#videos {
+	margin-right: 0px;
+	background-color: rgba(76, 40, 111, 1);
+}
+#videos:hover {
+	box-shadow: 0px 0px 200px rgba(76,40,111,1);
+	color:white;
+}
+#uploadfiles {
+	color:white;
+	background-color: rgba(215, 130,12,1);
+}
+#uploadfiles:hover {
+	box-shadow: 0px 0px 200px rgba(215,130,12,1);
+	color:white;
+}
+
+#viewall {
+	background-color: rgba(85,60,183,1);
+}
+#viewall:hover {
+	box-shadow: 0px 0px 200px rgba(85,60,183,1);
+	color:white;
+
+}
+#music {
+	background-color: rgba(0,95,0, 1);
+}
+#music:hover {
+	box-shadow: 0px 0px 200px rgba(0,95,0,1);
+	color:white;
+
+}
+#photos {
+	background-color: rgba(116, 27, 44,1);
+}
+#photos:hover {
+	box-shadow: 0px 0px 200px rgba(116,27,44,1);
+	color:white;
+}
+.dashitem:hover {
+	cursor: pointer;
+/*	height:170px;
+	width:170px;*/
+	/*border-radius: */
+}
+h3 {
+	font-family: myFont;
+	color:black;
+	padding-bottom: 60px;
+}

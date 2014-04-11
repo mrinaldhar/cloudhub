@@ -1,0 +1,70 @@
+@font-face {
+	src: url('../font/myriadpro.otf');
+	font-family:myFont;
+}
+#logo_main {
+	position:relative;
+	max-width: 50%;
+	float:right;
+	top:30px;
+	right:30px;
+	padding-bottom:20px;
+	display: block;
+}
+
+body {
+	text-align: center;
+	font-family: myFont;
+}
+#content {
+	color:white;
+	width:100%;
+	padding:10px;
+	display: block;
+	margin-top: 100px;
+}
+.page {
+	display:block;
+
+	text-align: center;
+}
+#page1 {
+	max-width:100%;
+	width:100%;
+}
+#page2 {
+	width:100%;
+	max-width:100%;
+	display:none;
+}
+#menubar {
+	position:fixed;
+	bottom:0px;
+	width:100%;
+	left:0px;
+	right:0px;
+	padding-top:5px;
+	padding-bottom: 5px;
+	background-color: rgba(0,0,0,0.4);
+}
+h1 {
+	font-family: myFont;
+	font-weight: lighter;
+	position:relative;
+	display: block;
+	top:15px;
+	left:50px;
+	float:left;
+	color:white;
+	font-size: 2.5em;
+}
+#shift:hover {
+	background-color: rgba(0,0,0,0.8);
+
+}
+#shift {
+	background-color: transparent;
+	padding: 10px;
+	border:none;
+	color:white;
+}
