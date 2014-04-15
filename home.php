@@ -34,9 +34,11 @@ $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . 
 <img src="./img/logo_black.png" id="logo_main" />                                                                    <!-- displays the main image on the home page of the user -->
 
 <a href="logout.php"><button class="btn btn-danger" id="logout">Logout</button></a>                                  <!-- shows the logout button on the to-right corner of the page -->
+
+
 <div id="dashboard">
 	<div id="sresults">
-<span id="bar"><input type="text" id="searchbox" name="searchbox" onclick="this.value=''" value="Search" /></span>   <!-- this is for the search box -->
+<p class="s"><input type="search" id="search" name="search" onclick="this.value=''" value="Search" /></span>   <!-- this is for the search box -->
 <div id="res"></div>
 </div>
 <h3><?php 
@@ -60,7 +62,7 @@ echo $firstname[0]; ?>'s Dashboard
 
 <!-- Whenver user searches for a file using the search bar the user gets a list of all the files -->
 <!-- To instantly view the files the user can just place the mouse pointer over it and instantly listen to the music files or watch video files -->
-<!-- for e.g. if the  mouse pointer is over a video file then that video will be played right in side of that file -->
+<!-- for e.g. if the  mouse pointer is over a video file then that video will be played right there, next to the cursor -->
 
 <div id="action">
 

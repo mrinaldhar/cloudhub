@@ -156,10 +156,12 @@ $(document).keyup(function(e) {
     		if (document.getElementById('thecomment').value!='')
     		{
 		postcomment();
+		document.getElementById('thecomment').value='';
 	}
 	if (document.getElementById('tagsval').value!='')
 	{
 		addtags();
+		document.getElementById('tagsval').value='';
 	}
 	}
 

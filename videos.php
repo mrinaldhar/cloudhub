@@ -27,7 +27,8 @@ Cloudhub :: Videos
 <body>
 
 	<h1>Videos</h1>
-	<a href="home.php"><img src="./img/logo_main.png" id="logo_main" /></a><br />
+	<a href="./home.php"><img src="./img/logo_main.png" id="logo_main" /></a><br />
+	<a href="./home.php"><button class="btn btn-success" id="backtodash">Back to Dashboard</button></a>
 <div id="content">
 <div id="page1" class="page">
 <ul id="files">

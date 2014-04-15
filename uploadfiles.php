@@ -23,13 +23,16 @@ Cloudhub :: Upload
 <noscript><link rel="stylesheet" href="css/jquery.fileupload-noscript.css"></noscript>
 <noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
 
-<link rel="stylesheet" href="./css/uploadfiles.css" />
 <link rel="stylesheet" href="./css/basic.css" />
+
+<link rel="stylesheet" href="./css/uploadfiles.css" />
 </head>
 <body>
 
 	<h1>Upload</h1>
 	<a href="home.php"><img src="./img/logo_main.png" id="logo_main" /></a><br />
+    <a href="./home.php"><button class="btn btn-success" id="backtodash">Back to Dashboard</button></a>
+
     <br /><?php
     // echo $_SESSION['filekanaam'];
     ?>

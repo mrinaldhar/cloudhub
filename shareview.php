@@ -23,6 +23,7 @@ Cloudhub :: ShareView
 <link rel="stylesheet" href="./css/shareview.css" />
 </head>
 <body>
+	<a href="home.php"><button class="btn btn-success" id="backtodash">Back to Dashboard</button></a>
 <h1>ShareView</h1>
 <?php
 require_once('connectvars.php'); 

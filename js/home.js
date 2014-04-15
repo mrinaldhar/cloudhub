@@ -217,10 +217,10 @@ $('#logo_main').slideUp();
 	});
 
 /* -------------------------------------------------------------------- */
-$('#searchbox').keyup(function() {
+$('#search').keyup(function() {
 $.ajax({
         type:'get',
-        data: {q: $('#searchbox').val()},
+        data: {q: $('#search').val()},
         url:'search.php',
 		success:function(data){
 			document.getElementById('res').innerHTML=data;
@@ -274,8 +274,11 @@ var keydetect = 0;
 $(document).keyup(function(e) {
     if (e.which == 83) 
     	{
-		$('#searchbox').focus();
+		$('#search').focus();
 		}
 
 });
 /* --------------------------------------------------- */
+$('#search').blur(function() {
+	$('#res').slideUp();
+});

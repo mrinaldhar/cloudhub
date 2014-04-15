@@ -21,9 +21,10 @@ Cloudhub :: All your files
 <body>
 	<h1>All Your Files</h1>
 	
-	<a href="home.php"><img src="./img/logo_main.png" id="logo_main" /></a>
+	<a href="./home.php"><img src="./img/logo_main.png" id="logo_main" /></a>
+	<a href="./home.php"><button class="btn btn-success" id="backtodash">Back to Dashboard</button></a>
 <div id="sresults">
-<span id="bar"><input type="text" id="searchbox" name="searchbox" onclick="this.value=''" value="Search" /></span>
+<p class="s"><input type="search" id="search" name="search" onclick="this.value=''" value="Search" /></span>   <!-- this is for the search box -->
 <div id="res"></div>
 </div>
 
@@ -73,9 +74,13 @@ $data = mysqli_query($dbc, $query);
 
  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  $myid=$_SESSION['userid']; 
-$query = "SELECT * FROM files WHERE shareid = '$myid' AND userid != '$myid' ORDER BY filename DESC";				// query to get all the files
+$query = "SELECT * FROM sharedfiles WHERE shareid = '$myid' ORDER BY id DESC";				// query to get all the files
 $data = mysqli_query($dbc, $query);
-	while ($row=mysqli_fetch_array($data)) {
+	while ($row2=mysqli_fetch_array($data)) {
+		$fileid = $row2['fileid'];
+		$query2 = "SELECT * FROM files WHERE id = '$fileid'";							// makes query to get all the files
+$data2 = mysqli_query($dbc, $query2);
+	while ($row=mysqli_fetch_array($data2)) {
 		$sizethis=$row['filesize'];
 		if ($sizethis>1)												// calculates the file size and displays the file size in user friendly format
 		{
@@ -94,6 +99,7 @@ $data = mysqli_query($dbc, $query);
 		}
 		echo '<li id="./server/php/files/' . $row['directory'] . '/' . $row['filename'] . '"><a href="./server/php/files/' . $row['directory'] . '/' . $row['filename'] . '"><button class="dwn"></button></a>' . $row['filename'] . ' | ' . $sizethis . '</li>';
 	}
+}
 	if (mysqli_num_rows($data)==0)
 	{
 		echo '<li>You have no files shared with you.</li>';
@@ -116,84 +122,6 @@ $data = mysqli_query($dbc, $query);
 	</video>
 </div>
 <script src="./js/jquery.js"></script>
-<script>
-var i=0;
-function move() {
-	if (i%2==0)
-	{
-	$('#page1').slideUp();
-	$('#page2').slideDown();
-	$('#shift').text('Switch to My Files view');
-}
-else {
-	$('#page1').slideDown();
-	$('#page2').slideUp();
-	$('#shift').text('Switch to Shared Files view');
-
-}
-i=i+1;
-}
-$('#logo_main').css("width", screen.width/4);
-
-
-
-
-/* the search function which searches for your files if you wish to seacrh for one */
-function searchfunc() {
-	
-}
-$('#searchbox').keyup(function() {
-$.ajax({													// gives an ajax call
-        type:'get',
-        data: {q: $('#searchbox').val()},									// sends the parameter to search with
-        url:'search.php',
-		success:function(data){
-			document.getElementById('res').innerHTML=data;
-			$('#res').slideDown();
-
-
-			$('.vidplay').hover(function() {							// instantaneosly loads the video and plays it as soon as the user places the mouse over it
-	
-	
-	var video = document.getElementById('prevplayer');
-	video.src=this.id;
-	video.load();
-	video.play();
-	$('#preview').css("opacity", "1");
-});	
-			$('.vidplay').mousemove(function(event) {
-	
-	$('#preview').css("top", event.pageY+10);
-	$('#preview').css("left", event.pageX);
-});
-$('.vidplay').mouseout(function() {									
-	var video = document.getElementById('prevplayer');
-	video.pause();
-	$('#preview').css("opacity", "0");
-});
-        
-
-      $('.audplay').hover(function() {
-	var video = document.getElementById('prevplayer');
-	video.src=this.id;
-	video.load();
-	video.play();
-});	
-$('.audplay').mouseout(function() {
-	var video = document.getElementById('prevplayer');
-	video.pause();
-});
-
-        }
-    });
-});
-var keydetect = 0;
-$(document).keyup(function(e) {
-    if (e.which == 83) 
-    	{
-		$('#searchbox').focus();
-		}
-});
-</script>
+<script src="./js/viewall.js"></script>
 </body>
 </html>
