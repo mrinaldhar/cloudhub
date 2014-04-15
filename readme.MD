@@ -16,7 +16,7 @@ Team:	Mrinal Dhar, 201325118
 Email:	mrinal.dhar@gmail.com
 
 
-Git:	http://bitbucket.org/cloudhub/cloudhub.git
+Git:	https://bitbucket.org/tasterisk3/cloudhub.git
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
