@@ -147,11 +147,23 @@ if (window.location.href.match(/html5/i)) {
 	require_once('connectvars.php'); 
  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  $myid=$_SESSION['userid']; 
+
 $query = "SELECT * FROM files WHERE shareid = '$myid' AND filetype='audio' ORDER BY filename DESC";
 $data = mysqli_query($dbc, $query);
 	while ($row=mysqli_fetch_array($data)) {
 		echo '<div class="ui360 ui360-vis"><a href="./server/php/files/' . $row['directory'] . '/' . $row['filename'] . '">' . $row['filename'] . '</a></div>';
 	}
+	$query = "SELECT * FROM sharedfiles WHERE shareid = '$myid' ORDER BY id DESC";
+$data = mysqli_query($dbc, $query);
+	while ($row=mysqli_fetch_array($data)) {
+		$fileid=$row['fileid'];
+		$query2 = "SELECT * FROM files WHERE id = '$fileid' AND filetype='audio'";
+$data2 = mysqli_query($dbc, $query2);
+	while ($row2=mysqli_fetch_array($data2)) {
+
+		echo '<div class="ui360 ui360-vis"><a href="./server/php/files/' . $row2['directory'] . '/' . $row2['filename'] . '">' . $row2['filename'] . '</a></div>';
+	}
+}
 	?>
 	</div>
 </div>

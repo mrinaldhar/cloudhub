@@ -159,19 +159,23 @@ $data = mysqli_query($dbc, $query);
 	</ul>
 </div>
 <div id="page2" class="page">
-	Files that <?php echo $sharebuddy; ?> shared with you
+	Files that <?php echo $sharebuddy; ?> shares with you
 <ul id="files">
 	<?php
 	
-$query = "SELECT * FROM files WHERE shareid = '$myid' AND userid = '$theirid'";
+$query = "SELECT * FROM sharedfiles WHERE shareid = '$myid' AND userid = '$theirid'";
 $data = mysqli_query($dbc, $query);
 if (mysqli_num_rows($data)==0)
 	{
 		echo '<li>No files shared</li>';
 	}
-	while ($row=mysqli_fetch_array($data)) {
+	while ($row2=mysqli_fetch_array($data)) {
+		$fileid=$row2['fileid'];
+		$query2 = "SELECT * FROM files WHERE id='$fileid'";
+$data2 = mysqli_query($dbc, $query2);
+while ($row=mysqli_fetch_array($data2)) {
 		echo '<li data-whose="their" id="./server/php/files/' . $row['directory'] . '/' . $row['filename'] . '" class="' . $row['filetype'] . '">' . $row['filename'] . '</li>';
-	
+	}
 	}
 	?>
 	</ul>

@@ -225,6 +225,17 @@ $data = mysqli_query($dbc, $query);
 	while ($row=mysqli_fetch_array($data)) {
 		echo '<img id="' . $row['id'] . '" src="./server/php/files/' . $row['directory'] . '/thumbnail/' . $row['filename'] . '" class="./server/php/files/' . $row['directory'] . '/' . $row['filename'] . '" />';
 	}
+
+	$query = "SELECT * FROM sharedfiles WHERE shareid = '$myid' ORDER BY id DESC";
+$data = mysqli_query($dbc, $query);
+	while ($row=mysqli_fetch_array($data)) {
+		$fileid=$row['fileid'];
+		$query2 = "SELECT * FROM files WHERE id = '$fileid' AND filetype='image'";
+$data2 = mysqli_query($dbc, $query2);
+	while ($row2=mysqli_fetch_array($data2)) {
+		echo '<img id="' . $row2['id'] . '" src="./server/php/files/' . $row2['directory'] . '/thumbnail/' . $row2['filename'] . '" class="./server/php/files/' . $row2['directory'] . '/' . $row2['filename'] . '" />';
+	}
+}
 	?>
 	</div>
 <div id="page2" class="page">

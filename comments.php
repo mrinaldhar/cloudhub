@@ -32,7 +32,32 @@ while ($row=mysqli_fetch_array($data))
 	}
 }
 else {
-	echo 'Error: Dont do this, it wont work.';
+	$query = "SELECT * FROM sharedfiles WHERE shareid='$myid'";
+$data = mysqli_query($dbc, $query);
+if (mysqli_num_rows($data)!=0)
+{
+while ($row=mysqli_fetch_array($data))
+{
+	if ($row['fileid']==$photoid)
+	{
+		$query2 = "SELECT * FROM comments WHERE photoid='$photoid'";
+		$data2=mysqli_query($dbc, $query2);
+			if (mysqli_num_rows($data2)==0)
+		{
+			echo '<li>No comments for this picture.</li>';
+		}
+		else {
+			while ($row2=mysqli_fetch_array($data2))
+		{
+			echo '<li><big>' . $row2['comment'] . '</big><br /><small>' . $row2['username'] . '</small></li>';
+		}
+	}
+		break;
+	}
+	}
+
+
+}
 }
 }
 ?>

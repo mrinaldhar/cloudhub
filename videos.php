@@ -133,6 +133,17 @@ $data = mysqli_query($dbc, $query);
 	while ($row=mysqli_fetch_array($data)) {
 		echo '<li id="./server/php/files/' . $row['directory'] . '/' . $row['filename'] . '">' . $row['filename'] . '</li>';
 	}
+	$query = "SELECT * FROM sharedfiles WHERE shareid = '$myid' ORDER BY id DESC";
+$data = mysqli_query($dbc, $query);
+	while ($row=mysqli_fetch_array($data)) {
+		$fileid=$row['fileid'];
+		$query2 = "SELECT * FROM files WHERE id = '$fileid' AND filetype='video'";
+$data2 = mysqli_query($dbc, $query2);
+	while ($row2=mysqli_fetch_array($data2)) {
+		echo '<li id="./server/php/files/' . $row2['directory'] . '/' . $row2['filename'] . '">' . $row2['filename'] . '</li>';
+	
+	}
+}
 	?>
 	</ul>
 </div>

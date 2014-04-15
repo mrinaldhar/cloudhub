@@ -25,7 +25,22 @@ if (mysqli_num_rows($data)!=0)
 }
 }
 else {
-	echo 'Error: Stop it. This wont work.';
+$query = "SELECT * FROM sharedfiles WHERE shareid='$myid'";
+$data = mysqli_query($dbc, $query);
+$myname = $_SESSION['usernaam'];
+if (mysqli_num_rows($data)!=0)
+{
+	while ($row=mysqli_fetch_array($data))
+{
+	if ($row['fileid']=$photoid)
+	{
+		$q2 = "INSERT INTO tags VALUES (0, '$myid', '$photoid', '$tags')";
+		mysqli_query($dbc, $q2);
+		echo '<br /><big>'.$tags.'</big><br /><small>Tags Added</small>';
+		break;
+	}
+}
+
 }
 }
 ?>

@@ -50,6 +50,35 @@ while ($row=mysqli_fetch_array($data))
 }
 }
 
+$query = "SELECT * FROM sharedfiles WHERE shareid = '$myid' ORDER BY id DESC";
+$data = mysqli_query($dbc, $query);
+	while ($row2=mysqli_fetch_array($data)) {
+		$fileid=$row2['fileid'];
+		$query2 = "SELECT * FROM files WHERE filename LIKE '%$term%' AND id = '$fileid'";
+$data2 = mysqli_query($dbc, $query2);
+	while ($row=mysqli_fetch_array($data2)) {
+echo '<span ';
+	if ($row['filetype']=='audio')
+	{
+		echo 'id="./server/php/files/' . $row['directory'] . '/' . $row['filename'] . '" class="audplay"';
+	}
+	else if ($row['filetype']=='video')
+	{
+		echo 'id="./server/php/files/' . $row['directory'] . '/' . $row['filename'] . '" class="vidplay"';
+
+	}
+	else if ($row['filetype']=='image')
+	{
+		echo 'id="resultitem"><img src="./server/php/files/' . $row['directory'] . '/thumbnail/' . $row['filename'] . '" height="50px" /';
+
+	}
+	else {
+		echo 'id="resultitem"';
+	}
+	echo '>(' . $row['filetype'] . ') ' . $row['filename'] . '</a><a href="./server/php/files/' . $row['directory'] . '/' . $row['filename'] . '"><button class="dwn"></button></a></span>';
+
+	}
+}
 
 //Search PhotoTags
 $query = "SELECT * FROM tags WHERE tags LIKE '%$term%' AND userid='$myid'";
