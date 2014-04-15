@@ -89,7 +89,7 @@ if (window.location.href.match(/html5/i)) {
 <div id="page1" class="page">
 
 <ul id="files">
-	<?php
+	<?php                                                                                                                                                   /* function which grabs all the audio files */
 	require_once('connectvars.php'); 
  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  $myid=$_SESSION['userid']; 

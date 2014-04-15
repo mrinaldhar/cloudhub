@@ -1,8 +1,16 @@
+/* a function which is initiated when the page first loads up */
 
+
+/* this function initiates slideup and slidedown functions */
 function loader() {
 	$('#diss_1').slideUp();
 	$('#dashboard').slideDown();
 }
+
+
+/* -------------------------------------------------------- */
+/* a function to animate the properties of different divs*/
+
 function dopiano() {
 	$('#logout').animate({
 			opacity: 1
@@ -60,24 +68,27 @@ function dopiano() {
 		});
 		});
 		});
-		
-	
-	
-	
-	
-	
-	
-	
-	
 }
+
+/* ----------------------------------------------------------------- */
+
+
+/* ----------------------------------------------------------------- */
 function start() {
 	window.setTimeout(loader, 1000);
 	window.setTimeout(dopiano, 1200);
 
 }
+/* ----------------------------------------------------------------- */
+
+
+/* ----------------------------------------------------------------- */
+/* calls the start function when the ready function is initiated */
 $('document').ready(function() {
 	start();
 });
+/* ----------------------------------------------------------------- */
+
 
 	var stop=0;
 	function blink() {
@@ -204,6 +215,8 @@ $('#logo_main').slideUp();
 		this.innerHTML = "";
 		
 	});
+
+/* -------------------------------------------------------------------- */
 $('#searchbox').keyup(function() {
 $.ajax({
         type:'get',
@@ -215,8 +228,6 @@ $.ajax({
 
 
 			$('.vidplay').hover(function() {
-	// alert('hi');
-	// alert(this.data)
 	var video = document.getElementById('prevplayer');
 	video.src=this.id;
 	video.load();
@@ -236,8 +247,6 @@ $('.vidplay').mouseout(function() {
         
 
       $('.audplay').hover(function() {
-	// alert('hi');
-	// alert(this.data)
 	var video = document.getElementById('prevplayer');
 	video.src=this.id;
 	video.load();
@@ -257,26 +266,16 @@ $('.audplay').mouseout(function() {
 }
     });
 });
+
+/* ---------------------------------------------------------------- */
+
+/* ---------------------------------------------------- */
 var keydetect = 0;
 $(document).keyup(function(e) {
     if (e.which == 83) 
     	{
 		$('#searchbox').focus();
 		}
-// 	if (e.which == 85) 
-//     	{
-// window.location="./uploadfiles.php";		}
-// 	if (e.which == 86) 
-//     	{
-// window.location="./videos.php";		}
-// 	if (e.which == 77) 
-//     	{
-// window.location="./music.php";		}
-// 	if (e.which == 80) 
-//     	{
-// window.location="./photos.php";		}
-// 	if (e.which == 65) 
-//     	{
-//     		window.location="./viewall.php";
-// 		}
+
 });
+/* --------------------------------------------------- */

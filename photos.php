@@ -1,5 +1,9 @@
 <?php
-ob_start(); session_start();
+ob_start(); 
+session_start();
+
+/* checks if the user is logged in or not */
+
 if (!isset($_SESSION['userid']) || !isset($_SESSION['usernaam'])) {
 $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php?err=noaccess'; 
           header('Location: ' . $home_url); 
@@ -13,6 +17,7 @@ Cloudhub :: Photos
 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<!-- links all the files which are required to be linked -->
 <link rel="stylesheet" href="./css/bootstrap.css" />
 <link rel="stylesheet" href="./css/basic.css" />
 <link rel="stylesheet" href="./css/photos.css" />
@@ -24,6 +29,7 @@ Cloudhub :: Photos
 <div id="content">
 <div id="page1" class="page">
 	<?php
+        /* code that will grab all the image files that are to be displayed */
 	require_once('connectvars.php'); 
  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  $myid=$_SESSION['userid']; 
@@ -48,6 +54,8 @@ $data2 = mysqli_query($dbc, $query2);
 <div id="page2" class="page">
 <img id="displaying" src="pic1.jpg">
 </div>
+
+<!-- menu bar is displyed when the user clicks on the photo -->
 <div id="menubar">
 	<button onclick="tags()" id="tagsbtn">PhotoTags</button>
 	<button onclick="move()" id="shift">All your photos</button>
@@ -59,6 +67,7 @@ $data2 = mysqli_query($dbc, $query2);
 <script src="./js/photos.js"></script>
 
 
+<!-- method through which photos can be commented -->
 <div id="commentsdiv">
 <ul id="comments">
 <li>Loading comments...</li>
@@ -67,6 +76,8 @@ $data2 = mysqli_query($dbc, $query2);
 <input type="text" id="thecomment" name="thecomment" placeholder="Enter comment..." />
 </div>
 </div>
+
+<!-- method through which the a photo can be searched that is through tags -->
 
 <div id="tagsdiv">
 PhotoTags help you quickly search for a particular photo

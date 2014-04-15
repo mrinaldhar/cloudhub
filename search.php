@@ -3,9 +3,13 @@ ob_start(); session_start();
 
 require_once('connectvars.php'); 
  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
- if (isset($_GET['q']) && $_GET['q']!='')
+ if (isset($_GET['q']) && $_GET['q']!='' && $_GET['q']!=' ')
  {
  $term = mysqli_real_escape_string($dbc, strip_tags($_GET['q'])); 
+
+
+/* now the entire codes throughout will search for the files according to parameter provided and then will display it to th user */
+/* it is also taken care that only the files that have shared with you are displayed and that no ither sharing that happened between different users is displayed */
 
 
 //Search user table
@@ -80,6 +84,8 @@ echo '<span ';
 	}
 }
 
+
+/* search implementation using phototags */
 //Search PhotoTags
 $query = "SELECT * FROM tags WHERE tags LIKE '%$term%' AND userid='$myid'";
 $data2 = mysqli_query($dbc, $query);

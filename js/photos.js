@@ -37,8 +37,6 @@ $('img').click(function() {
 	};
 
 	document.getElementById('displaying').src=selected.src;
-	// var currentid=this.id;
-	// alert(currentid);
     move();
 });
 function getOffset( el ) {
@@ -63,7 +61,6 @@ $('#commentsdiv').css("max-width", screen.width/4);
 $('#commentsdiv').css("width", screen.width/4);
 
 
-// $('#commentsdiv').css("margin-bottom", "100");
 $(document).keydown(function(e) {
     switch(e.which) {
         case 37: // left

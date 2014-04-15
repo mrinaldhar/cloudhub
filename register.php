@@ -1,5 +1,6 @@
 <?php
-ob_start(); session_start();
+ob_start(); 
+session_start();
 require_once('connectvars.php'); 
  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
 

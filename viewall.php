@@ -35,13 +35,16 @@ Cloudhub :: All your files
 	<ul id="files">
 <?php
 	require_once('connectvars.php'); 
+
+/* code to grab the files uploaded by the user */
+
  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  $myid=$_SESSION['userid']; 
-$query = "SELECT * FROM files WHERE userid = '$myid' ORDER BY filename DESC";
+$query = "SELECT * FROM files WHERE userid = '$myid' ORDER BY filename DESC";							// makes query to get all the files
 $data = mysqli_query($dbc, $query);
 	while ($row=mysqli_fetch_array($data)) {
 			$sizethis=$row['filesize'];
-		if ($sizethis>1)
+		if ($sizethis>1)												// calculates file size and displays the file size in user friendly format
 		{
 			$sizethis=$sizethis/1024;
 			if ($sizethis>1)
@@ -65,13 +68,16 @@ $data = mysqli_query($dbc, $query);
 	<ul id="files">
 <?php
 	require_once('connectvars.php'); 
+
+/* code to grab the files shared with the user */
+
  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  $myid=$_SESSION['userid']; 
-$query = "SELECT * FROM files WHERE shareid = '$myid' AND userid != '$myid' ORDER BY filename DESC";
+$query = "SELECT * FROM files WHERE shareid = '$myid' AND userid != '$myid' ORDER BY filename DESC";				// query to get all the files
 $data = mysqli_query($dbc, $query);
 	while ($row=mysqli_fetch_array($data)) {
 		$sizethis=$row['filesize'];
-		if ($sizethis>1)
+		if ($sizethis>1)												// calculates the file size and displays the file size in user friendly format
 		{
 			$sizethis=$sizethis/1024;
 			if ($sizethis>1)
@@ -101,6 +107,9 @@ $data = mysqli_query($dbc, $query);
 </div>
 </div>
 <div id="vid"></div>
+
+<!-- an instantaneous way to play files as soon as the user places the mouse over that particular file -->
+
 <div id="preview">
 	<video id="prevplayer">
 		<source id="music" src="music2.mp3"></source>
@@ -124,24 +133,28 @@ else {
 }
 i=i+1;
 }
-// $('#logo_main').css("margin-top", "10px");
 $('#logo_main').css("width", screen.width/4);
+
+
+
+
+/* the search function which searches for your files if you wish to seacrh for one */
 function searchfunc() {
 	
 }
 $('#searchbox').keyup(function() {
-$.ajax({
+$.ajax({													// gives an ajax call
         type:'get',
-        data: {q: $('#searchbox').val()},
+        data: {q: $('#searchbox').val()},									// sends the parameter to search with
         url:'search.php',
 		success:function(data){
 			document.getElementById('res').innerHTML=data;
 			$('#res').slideDown();
 
 
-			$('.vidplay').hover(function() {
-	// alert('hi');
-	// alert(this.data)
+			$('.vidplay').hover(function() {							// instantaneosly loads the video and plays it as soon as the user places the mouse over it
+	
+	
 	var video = document.getElementById('prevplayer');
 	video.src=this.id;
 	video.load();
@@ -153,7 +166,7 @@ $.ajax({
 	$('#preview').css("top", event.pageY+10);
 	$('#preview').css("left", event.pageX);
 });
-$('.vidplay').mouseout(function() {
+$('.vidplay').mouseout(function() {									
 	var video = document.getElementById('prevplayer');
 	video.pause();
 	$('#preview').css("opacity", "0");
@@ -161,8 +174,6 @@ $('.vidplay').mouseout(function() {
         
 
       $('.audplay').hover(function() {
-	// alert('hi');
-	// alert(this.data)
 	var video = document.getElementById('prevplayer');
 	video.src=this.id;
 	video.load();
@@ -182,10 +193,6 @@ $(document).keyup(function(e) {
     	{
 		$('#searchbox').focus();
 		}
-// 	if (e.which == 68) 
-//     	{
-// window.location="./home.php";	
-// 	}
 });
 </script>
 </body>

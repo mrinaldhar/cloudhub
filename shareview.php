@@ -1,5 +1,9 @@
 <?php
-ob_start(); session_start();
+ob_start(); 
+session_start();
+
+/* checks if the user is ogged in or not */
+
 if (!isset($_SESSION['userid']) || !isset($_SESSION['usernaam'])) {
 $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php?err=noaccess'; 
           header('Location: ' . $home_url); 
@@ -13,6 +17,7 @@ Cloudhub :: ShareView
 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<!-- links to the required style files are made here -->
 <link rel="stylesheet" href="./css/bootstrap.css" />
 <link rel="stylesheet" href="./css/basic.css" />
 <link rel="stylesheet" href="./css/shareview.css" />
@@ -23,14 +28,14 @@ Cloudhub :: ShareView
 require_once('connectvars.php'); 
  $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  	$myid=$_SESSION['userid']; 
-	if(isset($_GET['id']) && $_GET['id']!='')
+	if(isset($_GET['id']) && $_GET['id']!='')													// grabs the user id
 	{
 	$theirid = $_GET['id'];
 }
 else {
 	$theirid=$myid;
 }
-$query = "SELECT * FROM users WHERE id='$theirid' LIMIT 1";
+$query = "SELECT * FROM users WHERE id='$theirid' LIMIT 1";				
 $data = mysqli_query($dbc, $query);
 if (mysqli_num_rows($data)!=0) 
 {
@@ -57,8 +62,10 @@ $_SESSION['buddyid']=$theirid;
 <ul id="files">
 	<?php
 
+
+/* code to display the files that you have shared */
 	
-$query = "SELECT * FROM files WHERE shareid='$theirid' AND userid='$myid'";
+$query = "SELECT * FROM files WHERE shareid='$theirid' AND userid='$myid'";									// query to grab the differebt files
 $data = mysqli_query($dbc, $query);
 	if (mysqli_num_rows($data)==0)
 	{
@@ -84,8 +91,10 @@ $data = mysqli_query($dbc, $query);
 	Files that <?php echo $sharebuddy; ?> shares with you
 <ul id="files">
 	<?php
+
+/* code to display the files that your frind has shared with you */
 	
-$query = "SELECT * FROM sharedfiles WHERE shareid = '$myid' AND userid = '$theirid'";
+$query = "SELECT * FROM sharedfiles WHERE shareid = '$myid' AND userid = '$theirid'";								// query to grab the different files that your friend shared with you
 $data = mysqli_query($dbc, $query);
 if (mysqli_num_rows($data)==0)
 	{
@@ -105,6 +114,9 @@ while ($row=mysqli_fetch_array($data2)) {
 <div id="menubar">
 	</div>
 </div>
+
+<!-- method for instaneous video and audio play when the user places the mouse pointer over the file -->
+
 <div id="preview">
 	<video id="prevplayer">
 		<source id="music" src="music2.mp3"></source>

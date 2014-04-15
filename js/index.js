@@ -17,7 +17,10 @@ function regt(){
 	$('#reg_form').slideDown();
 }
 
-/////////////////////////////////////////////////////
+/* --------------------------------- */
+
+
+/* a function which validates the user registration form */
 function validate(){
 
 	document.getElementById('namerr').innerHTML=""
@@ -27,7 +30,6 @@ function validate(){
 	var flag = true;
 	if (uname =="")
 	{
-	//	alert(uname);
 		document.getElementById('namerr').innerHTML="Please enter your name"
 		flag = false;
 	}
@@ -35,7 +37,6 @@ function validate(){
 	var nick=document.getElementById('regnick').value;
 	if (nick == "")
 	{
-		//alert(uname);
 		document.getElementById('nickerr').innerHTML="Cloudnick cannot be empty"
 		flag = false;
 	}
@@ -45,7 +46,6 @@ function validate(){
 	var dotpos = email.lastIndexOf(".");
 	if (email == "" || atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length)
 	{
-		//alert(uname);
 		document.getElementById('mailerr').innerHTML="Invalid Email address!";
 		flag = false;
 	}
@@ -65,4 +65,5 @@ function validate(){
 
 	return flag;
 }
-////////////////////////////////////////////////////
+
+/* ---------------------------------- */

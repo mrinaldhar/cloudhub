@@ -1,30 +1,4 @@
 $('#logo_main').css("width", screen.width/4);
-// var offsets = $('#files').offset();
-// var top = offsets.top;
-// alert(top.value);
-
-// function changetrack()
-// {
-// 	// alert(selected.src);
-// 	var audio = document.getElementById('playergear');
-// 	audio.src=selected.src;
-// 	var songname=document.getElementById('songname');
-// 	songname.innerHTML=selected.songname;
-// 	audio.load();
-// 	audio.play();
-// }
-// var selected = {};
-// $('li').click(function() {
-// 	$('li').removeClass();
-// 	selected = {
-// 		songname: this.innerHTML,
-// 		src: this.id
-
-// 	};
-// 	this.className="active";
-// 	// $(this).addClass('active');
-// 	changetrack();
-// });
 function getOffset( el ) {
     var _x = 0;
     var _y = 0;

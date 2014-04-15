@@ -1,12 +1,8 @@
 $('#logo_main').css("width", screen.width/4);
-// var offsets = $('#files').offset();
-// var top = offsets.top;
-// alert(top.value);
 
 function move() {
 	$('#page1').slideUp();
 	$('#page2').slideDown();
-	// $('#shift').text('Switch to My Files view');
 }
 
 var selected = {};
@@ -26,7 +22,6 @@ $('li').removeClass();
 
 	};
 	this.className="active";
-	// $(this).addClass('active');
 	changetrack();
 
 }); 
