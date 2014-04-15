@@ -2,57 +2,10 @@
 ob_start();
 session_start();
 ?><link rel="stylesheet" href="./css/bootstrap.css" />
-<style>
-@font-face {
-	src: url('./font/myriadpro.otf');
-	font-family:myFont;
-}
-#logo_main {
-	position:relative;
-	padding-top:100px;
-	max-width: 50%;
-	padding-bottom:20px;
-}
+<link rel="stylesheet" href="./css/confirm.css" />
 
-body {
-	text-align: center;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eaeef1), to(#c7cfd8));
-	background: -moz-linear-gradient(top, #eaeef1, #c7cfd8);
-	background: linear-gradient(top, #eaeef1, #c7cfd8);
-	font-family: myFont;
-}
-#logout {
-	position: absolute;
-	top:30px;
-	right:50px;
-	opacity: 0;
-}
-h3 {
-font-family: myFont;
-	
-}
-#diss_1 {
-	width:80%;
-	height:30%;
-}
-#dashboard {
-	display:none;
-}
-</style>
 <script src="./js/jquery.js"></script>
-<script>
-function loader() {
-	$('#diss_1').slideUp();
-	$('#dashboard').slideDown();
-}
-function start() {
-	window.setTimeout(loader, 1000);
-}
-$('document').ready(function() {
-	start();
-
-});
-</script>
+<script src="./js/confirm.js"></script>
 </head>
 <body>
 <div id="diss_1"></div>

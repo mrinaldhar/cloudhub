@@ -23,17 +23,7 @@ Cloudhub :: Upload
 <noscript><link rel="stylesheet" href="css/jquery.fileupload-noscript.css"></noscript>
 <noscript><link rel="stylesheet" href="css/jquery.fileupload-ui-noscript.css"></noscript>
 
-
-<style>
-body {
-    background-color: rgba(215, 130,12,1);
-}
-.template-upload {
-    background-color: white;
-    padding: 0px;
-}
-
-</style>
+<link rel="stylesheet" href="./css/uploadfiles.css" />
 <link rel="stylesheet" href="./css/basic.css" />
 </head>
 <body>

@@ -1,0 +1,77 @@
+body {
+	background-color: rgba(76, 40, 111, 1);
+	overflow:hidden;
+}
+.page {
+
+	text-align: center;
+}
+.active {
+	border: 2px dashed;
+	border-color: rgba(76,40,111,1);
+	background-color: rgba(76,40,111,0.2);
+}
+#content {
+	color:white;
+	width:100%;
+	padding:10px;
+	display: block;
+	margin-top: 100px;
+	overflow:hidden;
+}
+#files {
+	background-color: white;
+	list-style-type: none;
+	margin-right: 50px;
+	margin-left: 50px;
+	margin-top: 50px;
+	color:black;
+	text-align: left;
+	padding:10px;
+	border-radius: 10px;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+#files li {
+	padding: 10px;
+}
+#files li:hover {
+	border: 1px solid;
+	border-color: rgba(76, 40, 111,1);
+	background-color: rgba(76,40,111, 0.2);
+	cursor: pointer;
+}
+video {
+	width:100%;
+
+}
+#page1 {
+	max-width:50%;
+	width:50%;
+	overflow: hidden;
+	float:left;
+}
+#page2 {
+	width:50%;
+	float:right;
+	display: inline-block;
+	max-width:50%;
+	overflow: hidden;
+}
+h1 {
+	font-family: myFont;
+	font-weight: lighter;
+	position:relative;
+	display: block;
+	top:15px;
+	left:50px;
+	float:left;
+	color:white;
+	/*font-size: 0.5em;*/
+}
+#preview {
+	width:30%;
+	position:absolute;
+	opacity: 0;
+	box-shadow: 0px 0px 20px black;
+}
