@@ -4,19 +4,11 @@
 				Written in: PHP, HTML, Javascript
 
 
-					ITWS-2 Project Submission
-
-
-
-Team:	Mrinal Dhar, 201325118
-		Vaibhav Kumar, 201325115
-		Bhavesh Goyal, 201301116
-
 
 Email:	mrinal.dhar@gmail.com
+Hosted at: https://mrinaldhar.com/cloudhub/
 
-
-Git:	https://bitbucket.org/tasterisk3/cloudhub.git
+Git:	https://github.com/mrinaldhar/cloudhub.git
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
